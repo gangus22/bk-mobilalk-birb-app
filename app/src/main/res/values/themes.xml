@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Birbapp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/birbyellow</item>
+        <item name="colorPrimaryVariant">@color/birbyellowvariant</item>
+        <item name="colorOnPrimary">@color/slate_800</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/red_400</item>
+        <item name="colorSecondaryVariant">@color/red_800</item>
+        <item name="colorOnSecondary">@color/slate_800</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/text_light</item>
+
+        <item name="android:buttonStyle">@style/ButtonColor</item>
+        <item name="editTextStyle">@style/EditTextCustom</item>
+    </style>
+
+    <style name="ButtonColor" parent="@android:style/Widget.Button">
+        <item name="materialButtonStyle">@color/birbyellow</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="EditTextCustom" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@color/text_light</item>
+        <item name="android:textColorHint">@color/text_light</item>
+    </style>
+</resources>
