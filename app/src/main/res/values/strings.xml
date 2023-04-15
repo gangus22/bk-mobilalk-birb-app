@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Birb.app</string>
+    <string name="main_login_button_text">LOGIN</string>
+    <string name="birb_motto">Twitter sucks. Birb blows.</string>
+    <string name="username">Username</string>
+    <string name="main_register_button_text">REGISTER</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+</resources>
