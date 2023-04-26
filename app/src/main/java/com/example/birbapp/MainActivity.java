@@ -38,11 +38,10 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (!task.isSuccessful()) {
                         Toast.makeText(MainActivity.this,"Login error. Make sure you're registered!", Toast.LENGTH_LONG).show();
-                        return;
+                    } else {
+                        startActivity(new Intent(this, UserFeed.class));
                     }
                 });
-
-        startActivity(new Intent(this, UserFeed.class));
     }
 
     public void registerAction(View view) {
