@@ -1,23 +1,17 @@
 package com.example.birbapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.birbapp.posts.PostAdapter;
 import com.example.birbapp.posts.PostModel;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -38,7 +32,7 @@ public class UserFeed extends AppCompatActivity {
         this.firestore = FirebaseFirestore.getInstance();
         this.firebasePosts = this.firestore.collection("posts");
 
-        this.postList = new ArrayList<PostModel>();
+        this.postList = new ArrayList<>();
         this.postAdapter = new PostAdapter(this, postList);
 
         this.recyclerView = findViewById(R.id.post_list_recycler);
@@ -56,8 +50,10 @@ public class UserFeed extends AppCompatActivity {
         this.firebasePosts.get().addOnSuccessListener(queryDocumentSnapshots -> {
             for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                 PostModel item = document.toObject(PostModel.class);
+                item._setId(document.getId());
                 postList.add(item);
             }
+            //TODO: add/remove cool loading thing here
             this.postAdapter.notifyDataSetChanged();
         });
     }
