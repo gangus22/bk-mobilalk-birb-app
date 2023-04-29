@@ -38,7 +38,7 @@ public class UserFeed extends AppCompatActivity {
         this.firestore = FirebaseFirestore.getInstance();
         this.firebasePosts = this.firestore.collection("posts");
 
-        this.postList = new ArrayList<PostModel>();
+        this.postList = new ArrayList<>();
         this.postAdapter = new PostAdapter(this, postList);
 
         this.recyclerView = findViewById(R.id.post_list_recycler);
@@ -56,8 +56,10 @@ public class UserFeed extends AppCompatActivity {
         this.firebasePosts.get().addOnSuccessListener(queryDocumentSnapshots -> {
             for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                 PostModel item = document.toObject(PostModel.class);
+                item._setId(document.getId());
                 postList.add(item);
             }
+            //TODO: add/remove cool loading thing here
             this.postAdapter.notifyDataSetChanged();
         });
     }
