@@ -57,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, registerOnCompleteListener(email, username));
     }
 
-    public void cancel(View view) {
+    public void cancelRegister(View view) {
         finish();
     }
 

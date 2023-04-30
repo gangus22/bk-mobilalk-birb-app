@@ -20,17 +20,27 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             app:srcCompat="@drawable/loading"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/loading_message" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_below="@+id/post_list_loading_icon"
-            android:text="Loading posts..."
+            android:text="@string/post_loading_message"
             android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
+
+    <ImageView
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        app:srcCompat="@drawable/plus"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@id/post_list_recycler"
+        android:contentDescription="@string/create_new_post_message"
+        android:onClick="toPostCreation"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/post_list_recycler"
@@ -38,6 +48,7 @@
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
         tools:ignore="MissingConstraints"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/post_list_header"/>
 
 </RelativeLayout>

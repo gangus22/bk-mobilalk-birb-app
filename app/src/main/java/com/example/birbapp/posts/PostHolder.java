@@ -1,7 +1,6 @@
 package com.example.birbapp.posts;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.birbapp.R;
 import com.example.birbapp.UserFeed;
 import com.example.birbapp.user.UserModel;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -93,23 +91,30 @@ public class PostHolder extends RecyclerView.ViewHolder {
         repostButton.setOnClickListener(repostPost());
     }
 
-    @NonNull
     private View.OnClickListener likePost() {
+        if(((UserFeed)context).likedPosts.contains(postId.getText().toString())) {
+            likeButton.setImageResource(R.drawable.likefull);
+            return null;
+        }
         return view -> {
             DocumentReference postRef = firestore.collection("posts").document(postId.getText().toString());
             postRef.update("likes", FieldValue.increment(1))
                     .addOnSuccessListener(aVoid -> {
-                        Log.d("HOLDER", "post successfully liked!");
                         likeCount.setText(String.valueOf(Integer.parseInt(likeCount.getText().toString()) + 1));
-                        likeButton.setImageResource(R.drawable.likefull);
                         likeButton.setOnClickListener(null);
+                        Log.d("HOLDER", "post successfully liked!");
+                        ((UserFeed)context).likedPosts.add(postId.getText().toString());
+                        ((UserFeed)context).queryPostList();
                     })
                     .addOnFailureListener(e -> Log.w("HOLDER", "Error liking post", e));
         };
     }
 
-    @NonNull
     private View.OnClickListener repostPost() {
+        if(((UserFeed)context).repostedPosts.contains(postId.getText().toString())) {
+            repostButton.setImageResource(R.drawable.retweetfull);
+            return null;
+        }
         return view -> {
             DocumentReference postRef = firestore.collection("posts").document(postId.getText().toString());
             postRef.update("reposts", FieldValue.increment(1))
@@ -127,9 +132,9 @@ public class PostHolder extends RecyclerView.ViewHolder {
                                     data.put("reposts", 0);
                                     firestore.collection("posts").add(data).addOnSuccessListener(documentReference -> {
                                         repostCount.setText(String.valueOf(Integer.parseInt(repostCount.getText().toString()) + 1));
-                                        repostButton.setImageResource(R.drawable.retweetfull);
                                         repostButton.setOnClickListener(null);
                                         Log.d("HOLDER", "post successfully reposted!");
+                                        ((UserFeed)context).repostedPosts.add(postId.getText().toString());
                                         ((UserFeed)context).queryPostList();
                                     });
                                 });
