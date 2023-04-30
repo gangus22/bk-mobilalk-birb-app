@@ -21,9 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private EditText passwordAgain;
-
     private FirebaseAuth firebaseAuth;
-
     private FirebaseFirestore firestore;
 
     @Override
