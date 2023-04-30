@@ -6,4 +6,11 @@
     <string name="main_register_button_text">REGISTER</string>
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
+    <string name="post_loading_message">Loading posts...</string>
+    <string name="create_new_post_message">Create new post</string>
+    <string name="loading_message">loading</string>
+    <string name="create_a_new_post_message">Create a new post</string>
+    <string name="new_post_content_hint">Write a post (max 255 characters)</string>
+    <string name="create_post_message">Post</string>
+    <string name="new_post_cancel_message">Cancel</string>
 </resources>
