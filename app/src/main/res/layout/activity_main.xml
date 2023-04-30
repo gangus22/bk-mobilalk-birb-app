@@ -27,7 +27,7 @@
         tools:ignore="RtlCompat" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/birb_logo"
         android:layout_width="109dp"
         android:layout_height="101dp"
         app:layout_constraintBottom_toBottomOf="parent"
