@@ -16,6 +16,7 @@ Execution failed for task ':app:processDebugGoogleServices'.
 ```
 
 - **Firebase autentikáció meg van valósítva, be lehet jelentkezni és regisztrálni**: ``MainActivity.java:35`` és ``RegisterActivity.java`` felelős ezekért. Login és regisztáció elérhető az app kezdőképernyőjén:
+- 
 ![image](https://user-images.githubusercontent.com/80174357/236635719-ca0bcd8e-acf9-4b47-8ec1-26fc49bd824d.png)
 
 - **Adatmodell definiálása (class vagy interfész formájában)**: ``PostModel.java`` és ``UserModel.java``.
@@ -26,11 +27,14 @@ Execution failed for task ':app:processDebugGoogleServices'.
 
 - **ConstraintLayout és még egy másik layout típus használata**: `res/layout/activity_main.xml` Constraint layoutot, a `res/layout/post.xml` pedig Relative layoutot használ.
 
-- **Reszponzív (...)*: Az `activity_register` és `activity_main` layoutoknak van külön land változata, döntött képernyőre. Kisebb képernyőjű emulátoron sem csúszik szét: ![image](https://user-images.githubusercontent.com/80174357/236636496-a7767498-8053-45e5-91a8-5862a327f4c6.png)
+- **Reszponzív (...)*: Az `activity_register` és `activity_main` layoutoknak van külön land változata, döntött képernyőre. Kisebb képernyőjű emulátoron sem csúszik szét:
+ 
+![image](https://user-images.githubusercontent.com/80174357/236636496-a7767498-8053-45e5-91a8-5862a327f4c6.png)
 
 - **Legalább 2 különböző animáció használata**: Login képernyőn felül a logón, illetve bejelentkezés után a postok betöltésénél vannak használva. `res/anim/pulse.xml` és `res/anim/spin.xml` respektíven.
 
 - **Intentek használata: navigáció meg van valósítva az activityk/fragmensek között (minden activity/fragmens elérhető)**: Minden activity elérhető, a `UserFeed` viszont csakis bejelentkezés után. A `CreatePost` a `UserFeed` tetején lévő + ikonnal elérhető:
+
 ![image](https://user-images.githubusercontent.com/80174357/236636701-0c0550da-d7ec-45d7-aa5c-b46968671b61.png)
 
 - **Legalább egy Lifecycle Hook használata a teljes projektben**: ``UserFeed.java:75``. Az OnRestart frissíti a postok listáját, ha appot váltunk, majd vissza
