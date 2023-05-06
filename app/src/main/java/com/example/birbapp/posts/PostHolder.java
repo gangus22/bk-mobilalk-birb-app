@@ -91,16 +91,16 @@ public class PostHolder extends RecyclerView.ViewHolder {
             likeButton.setOnClickListener(null);
         } else {
             likeButton.setImageResource(R.drawable.like);
+            likeButton.setOnClickListener(likePost());
         }
-        likeButton.setOnClickListener(likePost());
 
         if(((UserFeed)context).repostedPosts.contains(postId.getText().toString())) {
             repostButton.setImageResource(R.drawable.retweetfull);
             repostButton.setOnClickListener(null);
         } else {
             repostButton.setImageResource(R.drawable.retweet);
+            repostButton.setOnClickListener(repostPost());
         }
-        repostButton.setOnClickListener(repostPost());
     }
 
     private View.OnClickListener likePost() {
