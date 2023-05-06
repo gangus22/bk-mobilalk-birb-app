@@ -27,7 +27,7 @@ Execution failed for task ':app:processDebugGoogleServices'.
 
 - **ConstraintLayout és még egy másik layout típus használata**: `res/layout/activity_main.xml` Constraint layoutot, a `res/layout/post.xml` pedig Relative layoutot használ.
 
-- **Reszponzív (...)*: Az `activity_register` és `activity_main` layoutoknak van külön land változata, döntött képernyőre. Kisebb képernyőjű emulátoron sem csúszik szét:
+- **Reszponzív (...)**: Az `activity_register` és `activity_main` layoutoknak van külön land változata, döntött képernyőre. Kisebb képernyőjű emulátoron sem csúszik szét:
  
 ![image](https://user-images.githubusercontent.com/80174357/236636496-a7767498-8053-45e5-91a8-5862a327f4c6.png)
 
