@@ -86,16 +86,24 @@ public class PostHolder extends RecyclerView.ViewHolder {
         this.likeCount.setText(String.valueOf(post.likes));
         this.repostCount.setText(String.valueOf(post.reposts));
 
+        if(((UserFeed)context).likedPosts.contains(postId.getText().toString())) {
+            likeButton.setImageResource(R.drawable.likefull);
+            likeButton.setOnClickListener(null);
+        } else {
+            likeButton.setImageResource(R.drawable.like);
+        }
         likeButton.setOnClickListener(likePost());
 
+        if(((UserFeed)context).repostedPosts.contains(postId.getText().toString())) {
+            repostButton.setImageResource(R.drawable.retweetfull);
+            repostButton.setOnClickListener(null);
+        } else {
+            repostButton.setImageResource(R.drawable.retweet);
+        }
         repostButton.setOnClickListener(repostPost());
     }
 
     private View.OnClickListener likePost() {
-        if(((UserFeed)context).likedPosts.contains(postId.getText().toString())) {
-            likeButton.setImageResource(R.drawable.likefull);
-            return null;
-        }
         return view -> {
             DocumentReference postRef = firestore.collection("posts").document(postId.getText().toString());
             postRef.update("likes", FieldValue.increment(1))
@@ -111,10 +119,6 @@ public class PostHolder extends RecyclerView.ViewHolder {
     }
 
     private View.OnClickListener repostPost() {
-        if(((UserFeed)context).repostedPosts.contains(postId.getText().toString())) {
-            repostButton.setImageResource(R.drawable.retweetfull);
-            return null;
-        }
         return view -> {
             DocumentReference postRef = firestore.collection("posts").document(postId.getText().toString());
             postRef.update("reposts", FieldValue.increment(1))
