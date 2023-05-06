@@ -16,7 +16,7 @@ Execution failed for task ':app:processDebugGoogleServices'.
 ```
 
 - **Firebase autentikáció meg van valósítva, be lehet jelentkezni és regisztrálni**: ``MainActivity.java:35`` és ``RegisterActivity.java`` felelős ezekért. Login és regisztáció elérhető az app kezdőképernyőjén:
-- 
+
 ![image](https://user-images.githubusercontent.com/80174357/236635719-ca0bcd8e-acf9-4b47-8ec1-26fc49bd824d.png)
 
 - **Adatmodell definiálása (class vagy interfész formájában)**: ``PostModel.java`` és ``UserModel.java``.
