@@ -7,14 +7,6 @@ A felhasználók regisztrálhatnak, majd egy közös üzenőfalra postokat írha
 
 #### Javítási segédlet, [a google sheet alapján](https://docs.google.com/spreadsheets/d/1EjF3BcORhPtaLhDuegIORdjlUkcDQRfUdq1m6Tpxc48)
 
-- **Fordítási/Futtatási hiba nincs**: A fordításos egy érdekes követelmény, mivel a `google-services.json` nélkül nem fordul a projekt, és [köztudott, hogy ezt nem érdemes megosztani nyilvános repositoryban az API kulcsok miatt.](https://stackoverflow.com/questions/37358340/should-i-add-the-google-services-json-from-firebase-to-my-repository)
-
-tl;dr fordításnál nézd meg, hogy ilyen errort dob-e I guess:
-```
-Execution failed for task ':app:processDebugGoogleServices'.
-> File google-services.json is missing. The Google Services Plugin cannot function without it.
-```
-
 - **Firebase autentikáció meg van valósítva, be lehet jelentkezni és regisztrálni**: ``MainActivity.java:35`` és ``RegisterActivity.java`` felelős ezekért. Login és regisztáció elérhető az app kezdőképernyőjén:
 
 ![image](https://user-images.githubusercontent.com/80174357/236635719-ca0bcd8e-acf9-4b47-8ec1-26fc49bd824d.png)
